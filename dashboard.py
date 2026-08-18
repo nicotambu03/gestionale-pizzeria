@@ -86,9 +86,9 @@ def salva_db(dati):
         json.dump(dati, f, indent=4)
 
 
-if 'db' not in st.session_state:
-    st.session_state.db = carica_db()
-db = st.session_state.db
+# Forza la lettura in tempo reale del database per sincronizzare iPad e PC
+db = carica_db()
+st.session_state.db = db
 
 if 'form_reset_key' not in st.session_state:
     st.session_state.form_reset_key = 0
