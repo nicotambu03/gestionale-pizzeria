@@ -8,7 +8,10 @@ import streamlit.components.v1 as components
 from datetime import datetime, timedelta
 from ortools.constraint_solver import pywrapcp
 from ortools.constraint_solver import routing_enums_pb2
+from streamlit_autorefresh import st_autorefresh
 
+# Aggiorna la pagina automaticamente ogni 5 secondi (5000 millisecondi)
+st_autorefresh(interval=5000, key="data_refresh")
 try:
     from streamlit_autorefresh import st_autorefresh
 
@@ -17,7 +20,7 @@ except ImportError:
     HAS_AUTOREFRESH = False
 
 st.set_page_config(page_title="Gestione Pizzeria", page_icon="🍕", layout="wide")
-
+st.set_page_config(page_title="Pizzeria Azzurra", layout="wide", initial_sidebar_state="collapsed")
 API_KEY = "jFm457qtsHn1_tSmKN1ceJldaCEV5nYsrxnspLsERgs"
 GEOCODE_URL = "https://geocode.search.hereapi.com/v1/geocode"
 MATRIX_URL = "https://matrix.router.hereapi.com/v8/matrix"
