@@ -11,10 +11,14 @@ from ortools.constraint_solver import routing_enums_pb2
 from streamlit_autorefresh import st_autorefresh
 
 # 1. CONFIGURAZIONE PAGINA (Deve essere tassativamente il primo comando Streamlit!)
+# 1. CONFIGURAZIONE PAGINA (Deve essere tassativamente il primo comando Streamlit!)
 st.set_page_config(page_title="Pizzeria Azzurra", page_icon="🍕", layout="wide", initial_sidebar_state="collapsed")
 
 # 2. AVVIA L'AGGIORNAMENTO AUTOMATICO OGNI 5 SECONDI
 st_autorefresh(interval=5000, key="data_refresh")
+
+# Aggiungi questa riga per dire al resto del programma che l'aggiornamento è attivo!
+HAS_AUTOREFRESH = True
 API_KEY = "jFm457qtsHn1_tSmKN1ceJldaCEV5nYsrxnspLsERgs"
 GEOCODE_URL = "https://geocode.search.hereapi.com/v1/geocode"
 MATRIX_URL = "https://matrix.router.hereapi.com/v8/matrix"
